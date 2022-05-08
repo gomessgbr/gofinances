@@ -1,5 +1,5 @@
 export default {
-  color: {
+  colors: {
     primary: "#5636D3",
     secundary: "#FF872c",
     secundary_light: "rgba(255,135, 44, 0.3)",
