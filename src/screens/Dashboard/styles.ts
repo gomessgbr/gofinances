@@ -11,3 +11,9 @@ export const Header = styled.View`
   height: ${RFPercentage(42)}px;
   background-color: ${({ theme }) => theme.colors.primary};
 `;
+
+export const UserInfo = styled.View``;
+export const Photo = styled.View``;
+export const User = styled.View``;
+export const UserGreeting = styled.View``;
+export const UserName = styled.View``;
