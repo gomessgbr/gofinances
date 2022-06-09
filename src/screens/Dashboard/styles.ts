@@ -10,6 +10,9 @@ export const Header = styled.View`
   width: 100%;
   height: ${RFPercentage(42)}px;
   background-color: ${({ theme }) => theme.colors.primary};
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 `;
 
 export const UserInfo = styled.View`
