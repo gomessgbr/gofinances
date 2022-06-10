@@ -8,7 +8,8 @@ import {
   User,
   UserGreeting,
   UserName,
-  UserWrapper
+  UserWrapper,
+  Icon,
 } from "./styles";
 
 export function Dashboard() {
@@ -16,8 +17,6 @@ export function Dashboard() {
     <Container>
       <Header>
         <UserWrapper>
-
-        
           <UserInfo>
             <Photo
               source={{
@@ -29,6 +28,7 @@ export function Dashboard() {
               <UserName>Gabriel</UserName>
             </User>
           </UserInfo>
+          <Icon name="power" />
         </UserWrapper>
       </Header>
     </Container>
