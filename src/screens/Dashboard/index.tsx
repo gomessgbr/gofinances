@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { HighLightCard } from "../../components/HighLightCard";
 import {
   Container,
   Header,
@@ -31,6 +32,8 @@ export function Dashboard() {
           <Icon name="power" />
         </UserWrapper>
       </Header>
+
+      <HighLightCard />
     </Container>
   );
 }
