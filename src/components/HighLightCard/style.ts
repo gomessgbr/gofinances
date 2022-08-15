@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { RFValue } from "react-native-responsive-fontsize";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Feather } from "@expo/vector-icons";
 
 export const Container = styled.View`
@@ -9,7 +9,7 @@ export const Container = styled.View`
   padding: 19px 23px;
   padding-bottom: ${RFValue(42)}px;
   margin-right: 16px;
-  height: 300px;
+  
 `;
 
 export const Header = styled.View`
@@ -42,8 +42,3 @@ export const LastTransaction = styled.Text`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-export const HighlightCards = styled.ScrollView.attrs({
-  horizontal: true,
-  showsHorizontalScrollIndicator: false,
-  contentContainerStyle: { paddingHorizontal: 24 },
-})``;

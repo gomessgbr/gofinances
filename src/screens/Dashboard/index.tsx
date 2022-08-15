@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { HighLightCard } from "../../components/HighLightCard";
-import { HighlightCards } from "../../components/HighLightCard/style";
+
 import {
   Container,
   Header,
@@ -12,6 +12,7 @@ import {
   UserName,
   UserWrapper,
   Icon,
+  HighlightCards,
 } from "./styles";
 
 export function Dashboard() {
