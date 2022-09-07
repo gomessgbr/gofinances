@@ -17,12 +17,18 @@ interface Props {
   type: "up" | "down" | "total";
 }
 
-export function HighLightCard({ title, amount, lastTransaction }: Props) {
+const icon = {
+  up: "arrow-up-circle",
+  down: "arrow-down-circle",
+  total: "dollar-sign",
+};
+
+export function HighLightCard({ title, amount, lastTransaction, type }: Props) {
   return (
     <Container>
       <Header>
-        <Title>{Title}</Title>
-        <Icon name="arrow-up-circle" />
+        <Title>{title}</Title>
+        <Icon name={icon[type]} />
       </Header>
       <Footer>
         <Amount>{amount}</Amount>
