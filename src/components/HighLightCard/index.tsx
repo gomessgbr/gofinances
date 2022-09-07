@@ -28,7 +28,7 @@ export function HighLightCard({ title, amount, lastTransaction, type }: Props) {
     <Container>
       <Header>
         <Title>{title}</Title>
-        <Icon name={icon[type]} />
+        <Icon name={icon[type]} type={type} />
       </Header>
       <Footer>
         <Amount>{amount}</Amount>

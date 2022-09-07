@@ -1,6 +1,10 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Feather } from "@expo/vector-icons";
+
+interface IconProps {
+  type: "up" | "down" | "total";
+}
 
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.shape};
@@ -9,7 +13,6 @@ export const Container = styled.View`
   padding: 19px 23px;
   padding-bottom: ${RFValue(42)}px;
   margin-right: 16px;
-  
 `;
 
 export const Header = styled.View`
@@ -23,8 +26,23 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.text_dark};
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(Feather)<IconProps>`
   font-size: ${RFValue(40)}px;
+  ${(props) =>
+    props.type === "up" &&
+    css`
+      color: ${({ theme }) => theme.colors.success};
+    `};
+  ${(props) =>
+    props.type === "down" &&
+    css`
+      color: ${({ theme }) => theme.colors.attention};
+    `};
+  ${(props) =>
+    props.type === "total" &&
+    css`
+      color: ${({ theme }) => theme.colors.shape};
+    `};
 `;
 
 export const Footer = styled.View``;
@@ -41,4 +59,3 @@ export const LastTransaction = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.text};
 `;
-
