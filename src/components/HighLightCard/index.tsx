@@ -14,6 +14,7 @@ interface Props {
   title: string;
   amount: string;
   lastTransaction: string;
+  type: "up" | "down" | "total";
 }
 
 export function HighLightCard({ title, amount, lastTransaction }: Props) {
