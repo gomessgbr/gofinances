@@ -2,6 +2,8 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { HighLightCard } from "../../components/HighLightCard";
 
+import { TransactionCard } from "../../components/TransactionCard";
+
 import {
   Container,
   Header,
@@ -59,6 +61,7 @@ export function Dashboard() {
 
       <Transactions>
         <Title>Listagem</Title>
+        <TransactionCard />
       </Transactions>
     </Container>
   );
