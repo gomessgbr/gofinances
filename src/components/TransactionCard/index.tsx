@@ -16,24 +16,28 @@ interface Category {
 
   icon: string;
 }
-interface Props {
+
+interface Data {
   title: string;
   amount: string;
   category: Category;
   date: string;
 }
+interface Props {
+  data: Data;
+}
 
-export function TransactionCard({ title, amount, category, date }: Props) {
+export function TransactionCard({ data }: Props) {
   return (
     <Container>
-      <Title>{title}</Title>
-      <Amount>{amount}</Amount>
+      <Title>{data.title}</Title>
+      <Amount>{data.amount}</Amount>
       <Footer>
         <Category>
           <Icon name="dollar-sign" />
-          <CategoryName>{category.name}</CategoryName>
+          <CategoryName>{data.category.name}</CategoryName>
         </Category>
-        <Date>{date}</Date>
+        <Date>{data.date}</Date>
       </Footer>
     </Container>
   );
