@@ -27,14 +27,20 @@ export function Dashboard() {
       type: "positive",
       title: "Desenvolvimento de site",
       amount: "R$ 12.000,00",
-      category: { name: "Vendas", icon: "dollar-sign" },
+      category: {
+        name: "Vendas",
+        icon: "dollar-sign",
+      },
       date: "13/04/2020",
     },
     {
       type: "negative",
       title: "Hamburgueria Pizzy",
       amount: "R$ 59,00",
-      category: { name: "Alimentação", icon: "coffee" },
+      category: {
+        name: "Alimentação",
+        icon: "coffee",
+      },
       date: "10/04/2020",
     },
     {
