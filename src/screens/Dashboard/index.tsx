@@ -41,9 +41,10 @@ export function Dashboard() {
       type: "negative",
       title: "Aluguel do apartamento",
       amount: "R$ 1.200,00",
-      category: { 
-        name: "Casa", 
-        icon: "shopping-bag" },
+      category: {
+        name: "Casa",
+        icon: "shopping-bag",
+      },
       date: "10/04/2020",
     },
   ];
