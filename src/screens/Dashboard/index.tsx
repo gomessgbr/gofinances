@@ -34,7 +34,7 @@ export function Dashboard() {
       date: "13/04/2020",
     },
     {
-      type: "negative",
+      type: "positive",
       title: "Hamburgueria Pizzy",
       amount: "R$ 59,00",
       category: {
@@ -44,7 +44,7 @@ export function Dashboard() {
       date: "10/04/2020",
     },
     {
-      type: "negative",
+      type: "positive",
       title: "Aluguel do apartamento",
       amount: "R$ 1.200,00",
       category: {
