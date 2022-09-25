@@ -43,7 +43,7 @@ export function Dashboard() {
     },
     {
       id: "2",
-      type: "negative",
+      type: "positive",
       title: "Hamburgueria Pizzy",
       amount: "R$ 59,00",
       category: {
