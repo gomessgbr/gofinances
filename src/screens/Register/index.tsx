@@ -1,16 +1,13 @@
 import React from "react";
 
+import { Container, Header, Title } from "./styles";
 
-import { Container, Header, Title  } from "./styles";
-
-export default function Register() {
+export function Register() {
   return (
-    
-      <Container>
-        <Header>
-          <Title></Title>
-        </Header>
-      </Container>
-    
+    <Container>
+      <Header>
+        <Title>Cadastro</Title>
+      </Header>
+    </Container>
   );
 }
