@@ -1,14 +1,14 @@
 import React from "react";
-import { Text, View } from "react-native";
 
-import { Container, Header } from "./styles";
+
+import { Container, Header, Title  } from "./styles";
 
 export default function Register() {
   return (
     
       <Container>
         <Header>
-          
+          <Title></Title>
         </Header>
       </Container>
     
