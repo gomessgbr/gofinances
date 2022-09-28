@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 
-interface IconProps {
+interface TransactionProps {
   type: "up" | "down";
 }
 
@@ -15,7 +15,7 @@ export const Container = styled.TouchableOpacity`
   padding: 16px;
 `;
 
-export const Icon = styled(Feather)<IconProps>`
+export const Icon = styled(Feather)<TransactionProps>`
   font-size: ${RFValue(24)}px;
   margin-right: 12px;
 
