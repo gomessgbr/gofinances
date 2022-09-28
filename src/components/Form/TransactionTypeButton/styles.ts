@@ -3,12 +3,12 @@ import { Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 
 export const Container = styled.TouchableOpacity`
-  width: 100%;
+  width: 48%;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border: 1.5px solid ${({ theme }) => theme.colors.text};
-  padding: 16px 59px;
+  padding: 16px;
 `;
 
 export const Icon = styled(Feather)`
