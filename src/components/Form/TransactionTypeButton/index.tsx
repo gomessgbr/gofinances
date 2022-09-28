@@ -1,11 +1,19 @@
 import React from "react";
 
-import { Container, Zica } from "./styles";
+import { Container, Title, Icon } from "./styles";
 
-export function TransactionTypeButton() {
+import { TouchableOpacityProps } from "react-native";
+
+interface Props extends TouchableOpacityProps {
+  title: string;
+  type: "up" | "down";
+}
+
+export function TransactionTypeButton({ title, ...rest }: Props) {
   return (
-    <Container>
-      <Zica></Zica>
+    <Container {...rest}>
+      <Icon />
+      <Title>{title}</Title>
     </Container>
   );
 }
