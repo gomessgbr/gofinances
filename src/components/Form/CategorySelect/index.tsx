@@ -1,11 +1,16 @@
 import React from "react";
 
-import { Container, Title } from "./styles";
+import { Container, Category, Icon } from "./styles";
 
-export function CategorySelect() {
+interface Props {
+  title: string;
+}
+
+export function CategorySelect({ title }: Props) {
   return (
     <Container>
-      <Title></Title>
+      <Category>{title}</Category>
+      <Icon name="chevron-down" />
     </Container>
   );
 }
