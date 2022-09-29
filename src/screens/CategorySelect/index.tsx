@@ -24,18 +24,18 @@ export function CategorySelect({
     <Container>
       <Header>
         <Title>Catergoria</Title>
-        <FlatList
-          data={categories}
-          style={{ flex: 1, width: "100%" }}
-          keyExtractor={(item) => item.key}
-          renderItem={({ item }) => (
-            <Category>
-              <Icon name={item.icon} />
-              <Name>{item.name}</Name>
-            </Category>
-          )}
-        />
       </Header>
+      <FlatList
+        data={categories}
+        style={{ flex: 1, width: "100%" }}
+        keyExtractor={(item) => item.key}
+        renderItem={({ item }) => (
+          <Category>
+            <Icon name={item.icon} />
+            <Name>{item.name}</Name>
+          </Category>
+        )}
+      />
     </Container>
   );
 }
