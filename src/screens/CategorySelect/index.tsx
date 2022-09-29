@@ -21,7 +21,7 @@ export function CategorySelect({
   return (
     <Container>
       <Header>
-        <Title></Title>
+        <Title>Catergoria</Title>
       </Header>
     </Container>
   );
