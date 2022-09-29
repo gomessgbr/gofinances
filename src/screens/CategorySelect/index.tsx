@@ -10,6 +10,9 @@ import {
   Icon,
   Name,
   Separator,
+  Footer,
+  Button,
+  ButtonText,
 } from "./styles";
 
 interface Category {
@@ -45,6 +48,11 @@ export function CategorySelect({
         )}
         ItemSeparatorComponent={() => <Separator />}
       />
+      <Footer>
+        <Button>
+          <ButtonText>Selecionar</ButtonText>
+        </Button>
+      </Footer>
     </Container>
   );
 }
