@@ -72,7 +72,7 @@ export function Register() {
         <CategorySelect
           category={category}
           setCategory={setCategory}
-          closeSelectCategory={handleCloseSelectCategoryModal}
+          closeSelectCategory={handleOpenSelectCategoryModal}
         />
       </Modal>
     </Container>
