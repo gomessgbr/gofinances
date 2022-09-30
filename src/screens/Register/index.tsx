@@ -61,7 +61,10 @@ export function Register() {
               isActive={transactionType === "down"}
             />
           </TransactionTypes>
-          <CategorySelectButton title="Categoria" />
+          <CategorySelectButton
+            title="Categoria"
+            onPress={handleCloseSelectCategoryModal}
+          />
         </Fields>
         <Button title="Enviar" />
       </Form>
