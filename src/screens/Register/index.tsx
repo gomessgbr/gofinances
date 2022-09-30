@@ -31,11 +31,11 @@ export function Register() {
   }
 
   function handleOpenSelectCategoryModal() {
-    setCategoryModalOpen(false);
+    setCategoryModalOpen(true);
   }
 
   function handleCloseSelectCategoryModal() {
-    setCategoryModalOpen(true);
+    setCategoryModalOpen(false);
   }
 
   return (
@@ -63,7 +63,7 @@ export function Register() {
           </TransactionTypes>
           <CategorySelectButton
             title="Categoria"
-            onPress={handleCloseSelectCategoryModal}
+            onPress={handleOpenSelectCategoryModal}
           />
         </Fields>
         <Button title="Enviar" />
@@ -72,7 +72,7 @@ export function Register() {
         <CategorySelect
           category={category}
           setCategory={setCategory}
-          closeSelectCategory={handleOpenSelectCategoryModal}
+          closeSelectCategory={handleCloseSelectCategoryModal}
         />
       </Modal>
     </Container>
