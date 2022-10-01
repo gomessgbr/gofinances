@@ -32,6 +32,8 @@ export const Category = styled.TouchableOpacity<CategoryProps>`
   padding: ${RFValue(15)}px;
   flex-direction: row;
   align-items: center;
+  background-color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.secundary_light : theme.colors.background};
 `;
 
 export const Icon = styled(Feather)`
