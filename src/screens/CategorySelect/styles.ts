@@ -3,6 +3,10 @@ import styled from "styled-components/native";
 
 import { Feather } from "@expo/vector-icons";
 
+interface CategoryProps {
+  isActive: boolean;
+}
+
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
@@ -23,7 +27,7 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.shape};
 `;
 
-export const Category = styled.View`
+export const Category = styled.TouchableOpacity<CategoryProps>`
   width: 100%;
   padding: ${RFValue(15)}px;
   flex-direction: row;
