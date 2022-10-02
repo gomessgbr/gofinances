@@ -41,7 +41,11 @@ export function Register() {
     setCategoryModalOpen(false);
   }
   function handleRegister() {
-    console.log("Text");
+    console.log("Text", name, amount);
+  }
+
+  function handleInputChange() {
+    console.log("");
   }
 
   return (
