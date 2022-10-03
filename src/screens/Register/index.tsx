@@ -102,7 +102,7 @@ export function Register() {
               control={control}
               placeholder="Preço"
               keyboardType="numeric"
-              error={""}
+              error={errors.amount && errors.amount.message}
             />
             <TransactionTypes>
               <TransactionTypeButton
