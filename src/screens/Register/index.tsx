@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, TouchableWithoutFeedback, Keyboard } from "react-native";
+import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import { useForm } from "react-hook-form";
 
 import { InputForm } from "../../components/Form/InputForm";
@@ -50,6 +50,9 @@ export function Register() {
     setCategoryModalOpen(false);
   }
   function handleRegister(form: FormData) {
+    if (!transactionType) return Alert.alert("Selecione o tipo da transação");
+    if (category.key === "category")
+      return Alert.alert("Selecione a categoria ");
     const data = {
       name: form.name,
       amount: form.amount,
