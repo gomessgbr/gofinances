@@ -20,8 +20,8 @@ import {
 } from "./styles";
 
 interface FormData {
-  name: string;
-  amount: string;
+  name?: string;
+  amount?: string;
 }
 
 export function Register() {
@@ -58,6 +58,7 @@ export function Register() {
     };
 
     console.log(data);
+    return;
   }
 
   return (
