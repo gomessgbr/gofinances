@@ -35,7 +35,7 @@ export const Container = styled(RectButton)<ContainerProps>`
       background-color: ${({ theme }) => theme.colors.attention_light};
     `}
 `;
-
+export const Button = styled(RectButton)``;
 export const Icon = styled(Feather)<IconProps>`
   font-size: ${RFValue(24)}px;
   margin-right: 12px;

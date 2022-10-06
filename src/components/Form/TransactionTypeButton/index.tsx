@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Title, Icon } from "./styles";
+import { Container, Title, Icon, Button } from "./styles";
 import { RectButtonProps } from "react-native-gesture-handler";
 
 const icons = {
@@ -21,9 +21,11 @@ export function TransactionTypeButton({
   ...rest
 }: Props) {
   return (
-    <Container {...rest} isActive={isActive} type={type}>
-      <Icon name={icons[type]} type={type} />
-      <Title>{title}</Title>
+    <Container isActive={isActive} type={type}>
+      <Button {...rest}>
+        <Icon name={icons[type]} type={type} />
+        <Title>{title}</Title>
+      </Button>
     </Container>
   );
 }
