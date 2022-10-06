@@ -41,8 +41,16 @@ export function AppRoutes() {
           ),
         }}
       />
-      <Screen name="Cadastrar" component={Register}  />
-      <Screen name="Resumo" component={Register} />
+      <Screen
+        name="Cadastrar"
+        component={Register}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialIcons name="sanitizer" size={size} color={color} />
+          ),
+        }}
+      />
+      <Screen name="Resumo" component={Register}  />
     </Navigator>
   );
 }
