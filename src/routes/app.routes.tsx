@@ -50,7 +50,15 @@ export function AppRoutes() {
           ),
         }}
       />
-      <Screen name="Resumo" component={Register}  />
+      <Screen
+        name="Resumo"
+        component={Register}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialIcons name="zoom-in" size={size} color={color} />
+          ),
+        }}
+      />
     </Navigator>
   );
 }
