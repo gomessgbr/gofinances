@@ -77,8 +77,12 @@ export function Register() {
       category: category.key,
     };
 
-    console.log(data);
-    return;
+    try {
+      const dataKey = "@gofinance: transactions";
+    } catch (error) {
+      console.log(error);
+      Alert.alert("Não foi possível salvar");
+    }
   }
 
   return (
