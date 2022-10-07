@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import { useForm } from "react-hook-form";
 
@@ -89,6 +89,14 @@ export function Register() {
       Alert.alert("Não foi possível salvar");
     }
   }
+
+  useEffect(() => {
+    async function loadData() {
+      await AsyncStorage.getItem("@gofinance: transactions");
+    }
+
+    loadData();
+  }, []);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
