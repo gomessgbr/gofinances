@@ -92,7 +92,8 @@ export function Register() {
 
   useEffect(() => {
     async function loadData() {
-      await AsyncStorage.getItem("@gofinance: transactions");
+      const data = await AsyncStorage.getItem("@gofinance: transactions");
+      console.log("data", data);
     }
 
     loadData();
