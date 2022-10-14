@@ -80,6 +80,9 @@ export function Register() {
     };
 
     try {
+      const data = await AsyncStorage.getItem("@gofinance: transactions");
+      const currentData = data ? JSON.parse(data) : [];
+      const dataFormated = 0;
       await AsyncStorage.setItem(
         "@gofinance: transactions",
         JSON.stringify(data)
