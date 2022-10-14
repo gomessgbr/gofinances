@@ -82,13 +82,13 @@ export function Register() {
     try {
       const data = await AsyncStorage.getItem("@gofinance: transactions");
       const currentData = data ? JSON.parse(data) : [];
-      const dataFormated = {
+      const dataFormatted = {
         ...currentData,
         newTransaction,
       };
       await AsyncStorage.setItem(
         "@gofinance: transactions",
-        JSON.stringify(data)
+        JSON.stringify(dataFormatted)
       );
     } catch (error) {
       console.log(error);
