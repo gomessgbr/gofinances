@@ -91,7 +91,7 @@ export function Register() {
         "@gofinance: transactions",
         JSON.stringify(dataFormatted)
       );
-
+      reset();
       setTransactionType("");
       setCategory({
         key: "category",
