@@ -90,6 +90,12 @@ export function Register() {
         "@gofinance: transactions",
         JSON.stringify(dataFormatted)
       );
+
+      setTransactionType("");
+      setCategory({
+        key: "category",
+        name: "Categoria",
+      });
     } catch (error) {
       console.log(error);
       Alert.alert("Não foi possível salvar");
