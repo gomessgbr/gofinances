@@ -73,6 +73,7 @@ export function Register() {
     if (category.key === "category")
       return Alert.alert("Selecione a categoria ");
     const newTransaction = {
+      id: 
       name: form.name,
       amount: form.amount,
       transactionType,
