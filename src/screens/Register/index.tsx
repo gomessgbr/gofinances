@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import { useForm } from "react-hook-form";
+import uuid from "react-native-uuid";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -73,7 +74,7 @@ export function Register() {
     if (category.key === "category")
       return Alert.alert("Selecione a categoria ");
     const newTransaction = {
-      id: 
+      id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
       transactionType,
