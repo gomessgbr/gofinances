@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import { useForm } from "react-hook-form";
 import uuid from "react-native-uuid";
+import { useNavigation } from "@react-navigation/native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -49,6 +50,8 @@ export function Register() {
     key: "category",
     name: "Categoria",
   });
+
+  const navigation = useNavigation();
 
   const {
     control,
