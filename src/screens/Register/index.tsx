@@ -107,14 +107,6 @@ export function Register() {
     }
   }
 
-  useEffect(() => {
-    async function loadData() {
-      const data = await AsyncStorage.getItem("@gofinance: transactions");
-    }
-
-    loadData();
-  }, []);
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
