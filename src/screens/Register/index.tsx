@@ -100,6 +100,7 @@ export function Register() {
         key: "category",
         name: "Categoria",
       });
+      navigation.navigate("Listagem");
     } catch (error) {
       console.log(error);
       Alert.alert("Não foi possível salvar");
