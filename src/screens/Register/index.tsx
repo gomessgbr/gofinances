@@ -77,6 +77,7 @@ export function Register() {
       amount: form.amount,
       transactionType,
       category: category.key,
+      date: new Date(),
     };
 
     try {
