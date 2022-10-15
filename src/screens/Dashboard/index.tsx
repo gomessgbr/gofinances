@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { getBottomSpace } from "react-native-iphone-x-helper";
 import { HighLightCard } from "../../components/HighLightCard";
@@ -31,6 +31,11 @@ export interface DataListProps extends TransactionCardProps {
 
 export function Dashboard() {
   const [data, setData] = useState<DataListProps[]>([]);
+  async function loadTransaction() {}
+
+  useEffect(() => {
+    loadTransaction();
+  }, []);
   return (
     <Container>
       <Header>
