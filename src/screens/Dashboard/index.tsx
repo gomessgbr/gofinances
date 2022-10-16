@@ -35,6 +35,9 @@ export function Dashboard() {
   async function loadTransaction() {
     const dataKey = "@gofinances: transactions ";
     const response = await AsyncStorage.getItem(dataKey);
+    const transactions = response ? JSON.parse(response) : [];
+
+    const transactionsFormatted = transactions.map(()=>{})
   }
 
   useEffect(() => {
