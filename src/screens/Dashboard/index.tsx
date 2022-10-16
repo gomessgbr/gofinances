@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { getBottomSpace } from "react-native-iphone-x-helper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { HighLightCard } from "../../components/HighLightCard";
 
 import {
@@ -31,10 +32,12 @@ export interface DataListProps extends TransactionCardProps {
 
 export function Dashboard() {
   const [data, setData] = useState<DataListProps[]>([]);
-  async function loadTransaction() {}
+  async function loadTransaction() {
+    const dataKey = "@gofinances: transactions ";
+    const response = await AsyncStorage.getItem(dataKey);
+  }
 
   useEffect(() => {
-
     loadTransaction();
   }, []);
   return (
