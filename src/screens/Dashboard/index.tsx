@@ -49,6 +49,14 @@ export function Dashboard() {
           month: "2-digit",
           year: "2-digit",
         }).format(new Date(item.date));
+        return {
+          id: item.id,
+          title: item.title,
+          amount,
+          type: item.type,
+          category: item.category,
+          date,
+        };
       }
     );
   }
