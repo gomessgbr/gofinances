@@ -51,7 +51,7 @@ export function Dashboard() {
         }).format(new Date(item.date));
         return {
           id: item.id,
-          title: item.title,
+          title: item.name,
           amount,
           type: item.type,
           category: item.category,
