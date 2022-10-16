@@ -34,7 +34,7 @@ export function Dashboard() {
   async function loadTransaction() {}
 
   useEffect(() => {
-    console.log('Teste')
+
     loadTransaction();
   }, []);
   return (
