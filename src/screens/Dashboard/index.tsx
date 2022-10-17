@@ -64,6 +64,7 @@ export function Dashboard() {
 
   useEffect(() => {
     loadTransaction();
+    console.log('2')
   }, []);
   return (
     <Container>
