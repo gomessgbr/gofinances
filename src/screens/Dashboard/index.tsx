@@ -35,7 +35,6 @@ export function Dashboard() {
 
   async function loadTransaction() {
     const response = await AsyncStorage.getItem("@gofinance: transactions");
-    console.log("response", response);
     const transactions = response ? JSON.parse(response) : [];
 
     const transactionsFormatted: DataListProps[] = transactions.map(
