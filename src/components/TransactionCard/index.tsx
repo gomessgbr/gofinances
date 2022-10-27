@@ -11,11 +11,6 @@ import {
   Date,
 } from "./styles";
 
-// interface Category {
-//   name: string;
-//   icon: string;
-// }
-
 export interface TransactionCardProps {
   type: "positive" | "negative";
   name: string;
