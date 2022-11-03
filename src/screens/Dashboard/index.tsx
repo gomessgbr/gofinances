@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { getBottomSpace } from "react-native-iphone-x-helper";
+import React, { useCallback, useEffect, useState } from "react";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { HighLightCard } from "../../components/HighLightCard";
+
+import { useFocusEffect } from "@react-navigation/native";
 
 import {
   TransactionCard,
@@ -65,6 +66,13 @@ export function Dashboard() {
   useEffect(() => {
     loadTransaction();
   }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      loadTransaction();
+    }, [])
+  );
+
   return (
     <Container>
       <Header>
