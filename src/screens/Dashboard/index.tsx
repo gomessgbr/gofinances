@@ -31,13 +31,13 @@ export interface DataListProps extends TransactionCardProps {
   id: string;
 }
 
+interface HighLightProps {
+  amount: string;
+}
+
 interface HighLightData {
-  entries: {
-    amount: string;
-  };
-  expensive: {
-    amount: string;
-  };
+  entries: HighLightProps;
+  expensive: HighLightProps;
 }
 
 export function Dashboard() {
