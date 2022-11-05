@@ -38,13 +38,15 @@ export function Dashboard() {
     const response = await AsyncStorage.getItem("@gofinance: transactions");
     const transactions = response ? JSON.parse(response) : [];
 
-    let entriesSum = 0;
-    let expensiveSum = 0;
+    let entriesTotal = 0;
+    let expensiveTotal = 0;
 
     const transactionsFormatted: DataListProps[] = transactions.map(
       (item: DataListProps) => {
         if (item.type === "positive") {
-          entriesSum += Number(item.amount);
+          entriesTotal += Number(item.amount);
+        } else {
+          expensiveTotal += Number(item.amount);
         }
 
         const amount = Number(item.amount).toLocaleString("pt-BR", {
