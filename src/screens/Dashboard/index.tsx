@@ -32,7 +32,9 @@ export interface DataListProps extends TransactionCardProps {
 }
 
 export function Dashboard() {
-  const [data, setData] = useState<DataListProps[]>([]);
+  const [transactions, setTransactions] = useState<DataListProps[]>([]);
+
+  // const [highLightData, setHighLightData] = useState(0);
 
   async function loadTransaction() {
     const response = await AsyncStorage.getItem("@gofinance: transactions");
@@ -69,7 +71,7 @@ export function Dashboard() {
         };
       }
     );
-    setData(transactionsFormatted);
+    setTransactions(transactionsFormatted);
   }
 
   useEffect(() => {
@@ -126,7 +128,7 @@ export function Dashboard() {
       <Transactions>
         <Title>Listagem</Title>
         <TransactionList
-          data={data}
+          data={transactions}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <TransactionCard data={item} />}
         />
