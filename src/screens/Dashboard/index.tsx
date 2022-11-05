@@ -31,10 +31,19 @@ export interface DataListProps extends TransactionCardProps {
   id: string;
 }
 
+interface HighLightData {
+  entries: {
+    amount: string;
+  };
+  expensive: {
+    amount: string;
+  };
+}
+
 export function Dashboard() {
   const [transactions, setTransactions] = useState<DataListProps[]>([]);
 
-  // const [highLightData, setHighLightData] = useState(0);
+  const [highLightData, setHighLightData] = useState(0);
 
   async function loadTransaction() {
     const response = await AsyncStorage.getItem("@gofinance: transactions");
