@@ -82,6 +82,7 @@ export function Dashboard() {
         };
       }
     );
+    setTransactions(transactionsFormatted);
 
     setHighLightData({
       entries: {
@@ -97,7 +98,6 @@ export function Dashboard() {
         }),
       },
     });
-    setTransactions(transactionsFormatted);
   }
 
   useEffect(() => {
@@ -134,13 +134,13 @@ export function Dashboard() {
         <HighLightCard
           type="up"
           title="Entradas"
-          amount={highLightData.entries.total}
+          amount={highLightData?.entries?.total}
           lastTransaction="Última entrada dia 13 de abril"
         />
         <HighLightCard
           type="down"
           title="Saídas"
-          amount={highLightData.expensive.total}
+          amount={highLightData?.expensive?.total}
           lastTransaction="Última saída dia 03 de abril "
         />
         <HighLightCard
