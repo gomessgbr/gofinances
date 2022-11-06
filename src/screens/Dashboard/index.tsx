@@ -32,7 +32,7 @@ export interface DataListProps extends TransactionCardProps {
 }
 
 interface HighLightProps {
-  amount: string;
+  total: string;
 }
 
 interface HighLightData {
@@ -43,7 +43,9 @@ interface HighLightData {
 export function Dashboard() {
   const [transactions, setTransactions] = useState<DataListProps[]>([]);
 
-  const [highLightData, setHighLightData] = useState(0);
+  const [highLightData, setHighLightData] = useState<HighLightData>(
+    {} as HighLightData
+  );
 
   async function loadTransaction() {
     const response = await AsyncStorage.getItem("@gofinance: transactions");
@@ -80,6 +82,21 @@ export function Dashboard() {
         };
       }
     );
+
+    setHighLightData({
+      entries: {
+        total: entriesTotal.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }),
+      },
+      expensive: {
+        total: expensiveTotal.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BLR",
+        }),
+      },
+    });
     setTransactions(transactionsFormatted);
   }
 
@@ -117,13 +134,13 @@ export function Dashboard() {
         <HighLightCard
           type="up"
           title="Entradas"
-          amount="R$17.400,00"
+          amount={highLightData.entries.total}
           lastTransaction="Última entrada dia 13 de abril"
         />
         <HighLightCard
           type="down"
           title="Saídas"
-          amount="R$1.259,00"
+          amount={highLightData.expensive.total}
           lastTransaction="Última saída dia 03 de abril "
         />
         <HighLightCard
