@@ -32,12 +32,13 @@ export interface DataListProps extends TransactionCardProps {
 }
 
 interface HighLightProps {
-  total: string;
+  amount: string;
 }
 
 interface HighLightData {
   entries: HighLightProps;
   expensive: HighLightProps;
+  total: HighLightProps;
 }
 
 export function Dashboard() {
@@ -82,19 +83,27 @@ export function Dashboard() {
         };
       }
     );
+    const total = entriesTotal - expensiveTotal;
+
     setTransactions(transactionsFormatted);
 
     setHighLightData({
       entries: {
-        total: entriesTotal.toLocaleString("pt-BR", {
+        amount: entriesTotal.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         }),
       },
       expensive: {
-        total: expensiveTotal.toLocaleString("pt-BR", {
+        amount: expensiveTotal.toLocaleString("pt-BR", {
           style: "currency",
-          currency: "BLR",
+          currency: "BRL",
+        }),
+      },
+      total: {
+        amount: total.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
         }),
       },
     });
@@ -134,19 +143,19 @@ export function Dashboard() {
         <HighLightCard
           type="up"
           title="Entradas"
-          amount={highLightData?.entries?.total}
+          amount={highLightData?.entries?.amount}
           lastTransaction="Última entrada dia 13 de abril"
         />
         <HighLightCard
           type="down"
           title="Saídas"
-          amount={highLightData?.expensive?.total}
+          amount={highLightData?.expensive?.amount}
           lastTransaction="Última saída dia 03 de abril "
         />
         <HighLightCard
           type="total"
           title="Total"
-          amount="R$16.141,00"
+          amount={highLightData?.total?.amount}
           lastTransaction="01 à 16 de abril"
         />
       </HighlightCards>
