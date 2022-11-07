@@ -88,9 +88,21 @@ export function Dashboard() {
         };
       }
     );
-    const total = entriesTotal - expensiveTotal;
 
     setTransactions(transactionsFormatted);
+
+    const lastTransactionsEntries = Math.max.apply(
+      Math,
+      transactions
+        .filter((transaction: DataListProps) => {
+          transaction.type === "positive";
+        })
+        .map((transaction: DataListProps) => {
+          new Date(transaction.date).getTime();
+        })
+    );
+
+    const total = entriesTotal - expensiveTotal;
 
     setHighLightData({
       entries: {
