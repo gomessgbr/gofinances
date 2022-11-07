@@ -1,7 +1,15 @@
 import React from "react";
+import { HistoryCard } from "../../components/HistoryCard";
 
-import { Container } from "./styles";
+import { Container, Header, Title } from "./styles";
 
 export function Resume() {
-  return <Container></Container>;
+  return (
+    <Container>
+      <Header>
+        <Title>Resumo por Categoria</Title>
+      </Header>
+      <HistoryCard title="Compras" color="red" amount="R$ 150,50" />
+    </Container>
+  );
 }
