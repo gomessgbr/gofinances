@@ -1,12 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import { Container} from '.styles'
+import { Container } from "./styles";
 
-
-export function Resume(){
-    return (
-        <Container>
-
-        </Container>
-    )
+export function Resume() {
+  return <Container></Container>;
 }
