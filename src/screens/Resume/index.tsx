@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import { addMonths } from "date-fns";
 import { VictoryPie } from "victory-native";
 import { RFValue } from "react-native-responsive-fontsize";
 
@@ -40,11 +41,18 @@ interface CategoryData {
 }
 
 export function Resume() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>(
     []
   );
 
   const theme = useTheme();
+
+  function handleDateChange(action: "next" | "prevoius") {
+    if (action === "next") {
+    } else {
+    }
+  }
 
   async function loadData() {
     const dataKey = "@gofinance: transactions";
