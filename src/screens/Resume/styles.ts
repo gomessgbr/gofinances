@@ -51,3 +51,9 @@ export const MonthSelect = styled.View`
   align-items: center;
   margin-top: 24px;
 `;
+
+export const LoadContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;

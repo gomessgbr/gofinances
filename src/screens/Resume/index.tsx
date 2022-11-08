@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+
+import { ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { addMonths, subMonths, format } from "date-fns";
@@ -22,6 +24,7 @@ import {
   MonthSelectButton,
   MonthSelectIcon,
   MonthSelect,
+  LoadContainer,
 } from "./styles";
 
 interface TransactionData {
@@ -42,6 +45,7 @@ interface CategoryData {
 }
 
 export function Resume() {
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>(
     []
@@ -106,6 +110,7 @@ export function Resume() {
       }
     });
     setTotalByCategories(totalByCategory);
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -114,51 +119,61 @@ export function Resume() {
 
   return (
     <Container>
-      <Header>
-        <Title>Resumo por Categoria</Title>
-      </Header>
-      <Content
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingHorizontal: 24,
-          paddingBottom: useBottomTabBarHeight(),
-        }}
-      >
-        <MonthSelect>
-          <MonthSelectButton onPress={() => handleDateChange("prev")}>
-            <MonthSelectIcon name="chevron-left" />
-          </MonthSelectButton>
-
-          <Month>{format(selectedDate, "MMMM,yyyy", { locale: ptBR })}</Month>
-          <MonthSelectButton onPress={() => handleDateChange("next")}>
-            <MonthSelectIcon name="chevron-right" />
-          </MonthSelectButton>
-        </MonthSelect>
-        <ChartContainer>
-          <VictoryPie
-            data={totalByCategories}
-            x="percent"
-            y="total"
-            colorScale={totalByCategories.map((category) => category.color)}
-            style={{
-              labels: {
-                fontSize: RFValue(18),
-                fontWeight: "bold",
-                fill: theme.colors.shape,
-              },
+      {isLoading ? (
+        <LoadContainer>
+          <ActivityIndicator size="large" color={theme.colors.primary} />
+        </LoadContainer>
+      ) : (
+        <>
+          <Header>
+            <Title>Resumo por Categoria</Title>
+          </Header>
+          <Content
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+              paddingHorizontal: 24,
+              paddingBottom: useBottomTabBarHeight(),
             }}
-            labelRadius={50}
-          />
-        </ChartContainer>
-        {totalByCategories.map((item) => (
-          <HistoryCard
-            key={item.key}
-            title={item.name}
-            color={item.color}
-            amount={item.totalFormatted}
-          />
-        ))}
-      </Content>
+          >
+            <MonthSelect>
+              <MonthSelectButton onPress={() => handleDateChange("prev")}>
+                <MonthSelectIcon name="chevron-left" />
+              </MonthSelectButton>
+
+              <Month>
+                {format(selectedDate, "MMMM,yyyy", { locale: ptBR })}
+              </Month>
+              <MonthSelectButton onPress={() => handleDateChange("next")}>
+                <MonthSelectIcon name="chevron-right" />
+              </MonthSelectButton>
+            </MonthSelect>
+            <ChartContainer>
+              <VictoryPie
+                data={totalByCategories}
+                x="percent"
+                y="total"
+                colorScale={totalByCategories.map((category) => category.color)}
+                style={{
+                  labels: {
+                    fontSize: RFValue(18),
+                    fontWeight: "bold",
+                    fill: theme.colors.shape,
+                  },
+                }}
+                labelRadius={50}
+              />
+            </ChartContainer>
+            {totalByCategories.map((item) => (
+              <HistoryCard
+                key={item.key}
+                title={item.name}
+                color={item.color}
+                amount={item.totalFormatted}
+              />
+            ))}
+          </Content>
+        </>
+      )}
     </Container>
   );
 }
