@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
-
-import { VictoryPie } from "victory-native";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import { VictoryPie } from "victory-native";
+import { RFValue } from "react-native-responsive-fontsize";
+
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { useTheme } from "styled-components";
 
 import { HistoryCard } from "../../components/HistoryCard";
-
-import { Container, Header, Title, Content, ChartContainer } from "./styles";
 import { categories } from "../../utils/categories";
-import { RFValue } from "react-native-responsive-fontsize";
+
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  ChartContainer,
+  Month,
+  MonthSelectButton,
+  MonthSelectIcon,
+  MonthSelect,
+} from "./styles";
 
 interface TransactionData {
   type: "positive" | "negative";
@@ -93,7 +103,23 @@ export function Resume() {
       <Header>
         <Title>Resumo por Categoria</Title>
       </Header>
-      <Content>
+      <Content
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: 24,
+          paddingBottom: useBottomTabBarHeight(),
+        }}
+      >
+        <MonthSelect>
+          <MonthSelectButton>
+            <MonthSelectIcon name="chevron-left" />
+          </MonthSelectButton>
+
+          <Month>Maio</Month>
+          <MonthSelectButton>
+            <MonthSelectIcon name="chevron-right" />
+          </MonthSelectButton>
+        </MonthSelect>
         <ChartContainer>
           <VictoryPie
             data={totalByCategories}
