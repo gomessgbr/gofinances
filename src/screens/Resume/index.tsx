@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { addMonths } from "date-fns";
+import { addMonths, subMonths, format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { VictoryPie } from "victory-native";
 import { RFValue } from "react-native-responsive-fontsize";
 
@@ -48,9 +49,11 @@ export function Resume() {
 
   const theme = useTheme();
 
-  function handleDateChange(action: "next" | "prevoius") {
+  function handleDateChange(action: "next" | "prev") {
     if (action === "next") {
+      setSelectedDate(addMonths(selectedDate, 1));
     } else {
+      setSelectedDate(subMonths(selectedDate, 1));
     }
   }
 
@@ -119,12 +122,12 @@ export function Resume() {
         }}
       >
         <MonthSelect>
-          <MonthSelectButton>
+          <MonthSelectButton onPress={() => handleDateChange("prev")}>
             <MonthSelectIcon name="chevron-left" />
           </MonthSelectButton>
 
-          <Month>Maio</Month>
-          <MonthSelectButton>
+          <Month>{format(selectedDate, "MMMM,yyyy", { locale: ptBR })}</Month>
+          <MonthSelectButton onPress={() => handleDateChange("next")}>
             <MonthSelectIcon name="chevron-right" />
           </MonthSelectButton>
         </MonthSelect>
