@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 
+import { VictoryPie } from "victory-native";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { HistoryCard } from "../../components/HistoryCard";
 
-import { Container, Header, Title, Content } from "./styles";
+import { Container, Header, Title, Content, ChartContainer } from "./styles";
 import { categories } from "../../utils/categories";
 
 interface TransactionData {
@@ -18,7 +20,8 @@ interface TransactionData {
 interface CategoryData {
   key: string;
   name: string;
-  total: string;
+  total: number;
+  totalFormatted: string;
   color: string;
 }
 
@@ -48,7 +51,7 @@ export function Resume() {
       });
 
       if (categorySum > 0) {
-        const total = categorySum.toLocaleString("pt-BR", {
+        const totalFormatted = categorySum.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         });
@@ -56,7 +59,8 @@ export function Resume() {
           key: category.key,
           name: category.name,
           color: category.color,
-          total,
+          total: categorySum,
+          totalFormatted,
         });
       }
     });
@@ -73,12 +77,15 @@ export function Resume() {
         <Title>Resumo por Categoria</Title>
       </Header>
       <Content>
+        <ChartContainer>
+          <VictoryPie data={totalByCategories} x="name" y="total" />
+        </ChartContainer>
         {totalByCategories.map((item) => (
           <HistoryCard
             key={item.key}
             title={item.name}
             color={item.color}
-            amount={item.total}
+            amount={item.totalFormatted}
           />
         ))}
       </Content>
