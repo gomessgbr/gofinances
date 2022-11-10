@@ -10,6 +10,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Dashboard } from "../screens/Dashboard";
 import { Register } from "../screens/Register";
 import { Resume } from "../screens/Resume";
+import { SignIn } from "../screens/SignIn";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
