@@ -20,7 +20,6 @@ import {
 
 export function SignIn() {
   const { user } = useAuth();
-  console.log(user.email);
 
   return (
     <Container>
